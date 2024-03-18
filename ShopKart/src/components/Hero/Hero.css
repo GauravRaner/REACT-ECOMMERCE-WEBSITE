@@ -1,0 +1,38 @@
+.hero-section img{
+  height: 550px;
+  width: 100%;
+  position: relative;
+  object-fit: cover;
+}
+.hero-text{
+  position: absolute;
+  top: 30%;
+  left: 60%;
+}
+.deal{
+  font-size: 40px;
+  font-weight: 900;
+}
+.deal .yellow{
+  color: yellow;
+}
+.deal .white{
+  color: white;
+}
+.hero-offer{
+  border: 4px solid aqua;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  padding: 20px;
+  text-wrap: wrap;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(244, 108, 11);
+  margin-top: 50px;
+}
+.hero-offer span{
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(43, 22, 162);
+}
