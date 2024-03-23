@@ -34,11 +34,15 @@ function App() {
   }, []);
 
   const loadUserCart = (userId) => {
-    const storedCart = localStorage.getItem(`cart_${userId}`);
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
+    if (auth.currentUser) {
+      const storedCart = localStorage.getItem(`cart_${userId}`);
+      if (storedCart) {
+        setCart(JSON.parse(storedCart));
+      }
     }
   };
+  
+
 
   const AddToCart = (product) => {
     if (auth.currentUser) {
@@ -84,16 +88,25 @@ function App() {
   };
 
   const updateLocalStorageCart = (cart) => {
-    localStorage.setItem(`cart_${auth.currentUser.uid}`, JSON.stringify(cart));
+    if (auth.currentUser) {
+      localStorage.setItem(`cart_${auth.currentUser.uid}`, JSON.stringify(cart));
+    }
   };
+  
 
   const handleLogout = () => {
-    auth.signOut();
-    setUsername("");
-    setCart([]);
-    localStorage.removeItem(`cart_${auth.currentUser.uid}`);
-    toast.success('Logout successful');
+    auth.signOut()
+      .then(() => {
+        setUsername("");
+        toast.success('Logout successful');
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+        toast.error('Logout failed');
+      });
   };
+  
+  
   
 
   return (

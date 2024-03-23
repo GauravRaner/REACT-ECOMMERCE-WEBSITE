@@ -6,7 +6,7 @@
   font-family: 'Poppins', sans-serif;
 }
 .about-us{
-  height: 100vh;
+  height: auto;
   width: 100%;
   margin-block: 70px;
 }
@@ -15,8 +15,7 @@
   width:  500px;
 }
 .about{
-  width: 1130px;
-  max-width: 85%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -24,7 +23,8 @@
   gap: 50px;
 }
 .text{
-  width: 540px;
+  width: 100%;
+  text-wrap: wrap;
 }
 .text h2{
   font-size: 70px;
@@ -37,13 +37,14 @@
   font-weight: 500;
   margin-bottom: 20px;
 }
-span{
+.text span{
   color: #4070f4;
 }
 .text p{
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 1px;
+  text-wrap: wrap;
 }
 .data{
   margin-top: 30px;
@@ -62,4 +63,67 @@ span{
 .hire:hover{
   background: #000;
   border: 1px solid #4070f4;
+}
+
+@media screen and (max-width:768px) {
+  .about-us{
+    height: auto;
+    width: 100%;
+    margin-block: 70px;
+  }
+  .pic{
+    height: 300px;
+    width:  600px;
+  }
+  .about{
+    width: 100%;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .text{
+    width: 80%;
+  }
+  .text h2{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  
+  }
+  .text h5{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+ 
+  .text p{
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 1px;
+  }
+  .data{
+    margin-top: 30px;
+    text-align: start;
+  }
+  .hire{
+    font-size: 18px;
+    background: #4070f4;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    transition: 0.5s;
+  }
+  
+}
+@media screen and(max-width:480px){
+ .about-us.about .text h2{
+    font-size: 40px;
+  }
+  .about-us{
+    height: auto;
+  }
+ .about-us .about .text{
+    padding: 20px;
+  }
 }

@@ -9,10 +9,20 @@ header {
   margin-bottom: 50px;
 }
 
+.back-btn{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  color: #007bff;
+  margin-top: 30px;
+  margin-left: 8%;
+}
+
 #product-info {
   display: flex;
   width: 95%;
-  padding-block: 120px;
+  padding-block: 90px;
   padding-inline: 50px;
 }
 
@@ -136,4 +146,117 @@ header {
   font-size: 18px;
   margin-top: 30px;
   margin-left:0px;
+}
+
+@media screen and (max-width:768px) {
+  #product-info {
+    padding-block: 90px;
+    padding-inline: 40px;
+  }
+  .main-info h4{
+    font-size: 26px;
+    margin-bottom: 0;
+    font-weight: 500
+  }
+  
+  .star-rating {
+    font-size: 20px;
+  }
+  
+  .main-info p {
+    font-size: 12px;
+  }
+  
+  #price {
+    font-size: 17px;
+  }
+
+  .brand{
+    font-size: 17px;
+  }
+  
+  /* Select Items */
+  
+  .change-color .thumb-box{
+    margin: 10px 10px 10px 0;
+    width: 40px;
+    display: inline-block;
+  }
+  
+  .change-size select {
+    margin-top: 8px;
+  }
+  
+  .description  {
+    font-size: 13px;
+    margin-top: 25px;
+  }
+  .btns button{
+    padding: 8px 8px;
+    gap: 8px;
+    font-size: 15px;
+    margin-top: 25px;
+  }
+}
+
+@media screen and (max-width:538px) {
+  #product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 0;
+    padding-block: 20px;
+    margin: 0 ;
+  }
+
+  .main-info h4{
+    font-size: 30px;
+    margin-bottom: 0;
+    font-weight: 500
+  }
+  
+  .star-rating {
+    font-size: 20px;
+  }
+  
+  .main-info p {
+    font-size: 12px;
+  }
+  
+  #price {
+    font-size: 17px;
+  }
+
+  .brand{
+    font-size: 17px;
+  }
+  
+  /* Select Items */
+  
+  .change-color .thumb-box{
+    margin: 10px 10px 10px 0;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+  }
+  
+  .change-size select {
+    margin-top: 8px;
+  }
+  
+  .description  {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .btns button{
+    padding: 8px 8px;
+    gap: 8px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .item-image-main img{
+    height: 150px;
+    width: 100%;
+  }
 }

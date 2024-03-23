@@ -88,7 +88,7 @@ body{
   color: white;
   font-size: 17px;
   border: 0.5px solid gray;
-  padding: 10px 10px;
+  padding: 9px 10px;
   font-weight: bold;
   color: black;
   border-radius: 0 10px  10px 0 ;
@@ -101,4 +101,107 @@ body{
 .pagination button{
   border: 1px solid black;
   padding: 0 10px;
+
 }
+
+@media screen and (max-width:768px) {
+  .product-card{
+    height: auto;
+    width: 200px;
+    margin: 7px;
+    padding: 7px;
+  }
+  .product-card img{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+  }
+  .product-card p{
+    margin-left: 15px;
+    font-size: 11px;
+  }
+  .product-card .star{
+    font-size: 16px;
+  }
+  .product-card button{
+    padding: 7px 7px;
+    border-radius: 5px;
+    margin-inline: auto ;
+    font-weight: 400;
+    margin-top: 8%;
+    gap: 7px;
+    font-size: 10px;
+  }
+  .product-card .product-title{
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .product-card .product-price{
+    font-size: 15px;
+    font-weight: bold;
+  }
+ 
+  .search-container input{
+    padding: 5px 10px;
+    border-radius:  10px 0 0 10px;
+    width: 220px;
+    font-size: 14px;
+    
+  }
+  .search-container button{
+    font-size: 14px;
+    padding: 7px 7px;
+    font-weight: bold;
+    border-radius: 0 10px  10px 0 ;
+  }
+}
+
+@media screen and (max-width:480px){
+  .filter-container{
+    flex-direction: column;
+    order: 2;
+  }
+  .product-card{
+    height: auto;
+    width: 150px;
+    margin: 5px;
+    padding: 5px;
+  }
+  .product-card img{
+    height: 130px;
+    width: 100%;
+  }
+  .product-card p{
+    margin-left: 12px;
+    font-size: 9px;
+  }
+  .product-card .star{
+    font-size: 13px;
+  }
+  .product-card button{
+    padding: 5px 5px;
+    margin-top: 8%;
+    gap: 5px;
+    font-size: 8px;
+  }
+  .product-card .product-title{
+    font-size: 12px;
+  }
+  .product-card .product-price{
+    font-size: 13px;
+  }
+ 
+  .search-container input{
+    padding: 5px 10px;
+    border-radius:  10px 0 0 10px;
+    width: 220px;
+    font-size: 14px;
+    
+  }
+  .search-container button{
+    font-size: 12px;
+    padding: 11px 10px;
+  }
+}
+

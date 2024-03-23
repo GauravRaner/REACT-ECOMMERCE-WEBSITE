@@ -40,7 +40,7 @@ const Contact = () => {
     <>
 
       <section className="feedback-section">
-        <div className="signin">
+        <div className="contact">
           <div className="content">
             <h2>Contact Us</h2>
 

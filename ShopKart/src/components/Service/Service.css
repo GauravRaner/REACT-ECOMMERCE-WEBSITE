@@ -140,3 +140,19 @@
 .main-service span{
   font-size: 30px;
 }
+
+@media screen and (max-width:480px){
+  .main-service{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    gap: 15px;
+  }
+  .main-service div {
+    display: flex;
+    margin: 10px auto;
+    width: 150px;
+    height: 150px;
+    font-size: 13px;
+  }
+}

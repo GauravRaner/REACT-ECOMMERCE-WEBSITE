@@ -16,10 +16,8 @@
   justify-content: center;
   align-items: center;
   gap: 2px;
-  margin-block: 40px;
   flex-wrap: wrap;
   overflow: hidden;
-  padding-block: 40px;
 }
 .section::before 
 {
@@ -47,7 +45,7 @@
   transition: 0s;
 }
 
-.section .signin
+.section .register
 {
   position: absolute;
   width: 400px;
@@ -60,7 +58,7 @@
   border-radius: 4px;
   box-shadow: 0 15px 35px rgba(0,0,0,9);
 }
-.section .signin .content 
+.section .register .content 
 {
   position: relative;
   width: 100%;
@@ -70,25 +68,25 @@
   flex-direction: column;
   gap: 40px;
 }
-.section .signin .content h2 
+.section .register .content h2 
 {
   font-size: 2em;
   color: #4CB5F9;
   text-transform: uppercase;
 }
-.section .signin .content .form 
+.section .register .content .form 
 {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.section .signin .content .form .inputBox
+.section .register .content .form .inputBox
 {
   position: relative;
   width: 100%;
 }
-.section .signin .content .form .inputBox input 
+.section .register .content .form .inputBox input 
 {
   position: relative;
   width: 100%;
@@ -101,7 +99,7 @@
   font-weight: 500;
   font-size: 1em;
 }
-.section .signin .content .form .inputBox i 
+.section .register .content .form .inputBox i 
 {
   position: absolute;
   left: 0;
@@ -111,14 +109,14 @@
   transition: 0.5s;
   pointer-events: none;
 }
-.signin .content .form .inputBox input:focus ~ i,
-.signin .content .form .inputBox input:valid ~ i
+.register .content .form .inputBox input:focus ~ i,
+.register .content .form .inputBox input:valid ~ i
 {
   transform: translateY(-7.5px);
   font-size: 0.8em;
   color: #aaa;
 }
-.signin .content .form .links 
+.register .content .form .links 
 {
   position: relative;
   width: 100%;
@@ -126,17 +124,17 @@
   justify-content: center;
   gap: 10px;
 }
-.signin .content .form .links a 
+.register .content .form .links a 
 {
   color: #000;
   text-decoration: none;
 }
-.signin .content .form .links a:nth-child(2)
+.register .content .form .links a:nth-child(2)
 {
   color: #4CB5F9;
   font-weight: 600;
 }
-.signin .content .form .inputBox input[type="submit"]
+.register .content .form .inputBox input[type="submit"]
 {
   padding: 10px;
   background:#4CB5F9;
@@ -150,19 +148,64 @@ input[type="submit"]:active
 {
   opacity: 0.6;
 }
+
 @media (max-width: 900px)
 {
+  .section{
+    width: auto;
+  }
+  .section .register{
+    width: auto;
+    height: 80vh;
+  }
   .section span 
   {
     width: calc(10vw - 2px);
     height: calc(10vw - 2px);
   }
 }
-@media (max-width: 600px)
+@media (max-width: 500px)
 {
+  .section{
+    width: auto;
+  }
+  .section .register{
+    width: auto;
+    height: 65vh;
+  }
   .section span 
   {
     width: calc(20vw - 2px);
     height: calc(20vw - 2px);
-  }
+
+}
+.section .register .content .form .inputBox input 
+{
+  padding: 15px 8px 5px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+.register .content .form .inputBox input[type="submit"]
+{
+  padding: 5px;
+  font-size: 1.15em;
+}
+
+.section .register .content 
+{
+  gap: 20px;
+}
+.section .register .content h2 
+{
+  font-size: 1.6em;
+}
+.section .register .content .form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 }

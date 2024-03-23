@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './AllProducts.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "./AllProducts.css";
 import { CiSearch } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from "../../components/Navbar/Navbar";
 
 const AllProducts = ({ AddToCart }) => {
   const [category, setCategory] = useState([]);
   const [products, setProducts] = useState([]);
-  const [selectProducts, setSelectProducts] = useState('');
-  const [searchProduct, setSearchProduct] = useState('');
+  const [selectProducts, setSelectProducts] = useState("");
+  const [searchProduct, setSearchProduct] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 16;
-
-
 
   useEffect(() => {
     const getCategory = async () => {
       try {
-        const res = await axios('https://dummyjson.com/products/categories');
+        const res = await axios("https://dummyjson.com/products/categories");
         setCategory(res.data);
       } catch (error) {
         console.log(error);
@@ -31,7 +29,7 @@ const AllProducts = ({ AddToCart }) => {
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const res = await axios('https://dummyjson.com/products?limit=200');
+        const res = await axios("https://dummyjson.com/products?limit=200");
         setProducts(res.data.products);
       } catch (error) {
         console.log(error);
@@ -44,7 +42,9 @@ const AllProducts = ({ AddToCart }) => {
     const getFilteredProducts = async () => {
       try {
         if (selectProducts) {
-          const res = await axios(`https://dummyjson.com/products/category/${selectProducts}`);
+          const res = await axios(
+            `https://dummyjson.com/products/category/${selectProducts}`
+          );
           setProducts(res.data.products);
         }
       } catch (error) {
@@ -72,19 +72,30 @@ const AllProducts = ({ AddToCart }) => {
   // Pagination
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
-      <div className='filter-container'>
+      <div className="filter-container">
         {/* Category filter */}
-        <div className='category-container'>
+        <div className="category-container">
           <select onChange={(e) => filterProducts(e.target.value)}>
             <option>Sort by category</option>
             {category
-              .filter((filterItems) => !['furniture', 'automotive', 'motorcycle', 'lighting'].includes(filterItems))
+              .filter(
+                (filterItems) =>
+                  ![
+                    "furniture",
+                    "automotive",
+                    "motorcycle",
+                    "lighting",
+                  ].includes(filterItems)
+              )
               .map((item, index) => (
                 <option key={index} value={item}>
                   {item}
@@ -94,31 +105,55 @@ const AllProducts = ({ AddToCart }) => {
         </div>
 
         {/* Search bar */}
-        <div className='search-container'>
-          <input type="text" placeholder='Search product' onChange={searchProducts} />
-          <button onClick={handleSearchProducts}><span><CiSearch /></span></button>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search product"
+            onChange={searchProducts}
+          />
+          <button onClick={handleSearchProducts}>
+            <span>
+              <CiSearch />
+            </span>
+          </button>
         </div>
       </div>
 
       {/* Product display */}
-      <div className='product-container'>
+      <div className="product-container">
         {currentProducts.map((product) => (
-          <div key={product.id} className='product-card'>
-            <Link to={`/productdetails/${product.id}`}><img src={product.thumbnail} alt='' /></Link>
-            <p className='product-title'>{product.title}</p>
-            <p>Rating: {product.rating.toFixed(1)} <span className='star'>★</span> </p>
+          <div key={product.id} className="product-card">
+            <Link to={`/productdetails/${product.id}`}>
+              <img src={product.thumbnail} alt="" />
+            </Link>
+            <p className="product-title">{product.title}</p>
+            <p>
+              Rating: {product.rating.toFixed(1)}{" "}
+              <span className="star">★</span>{" "}
+            </p>
             <p>Category: {product.category}</p>
-            <p className='product-price'>Price: {product.price}</p>
-            <button onClick={() => AddToCart(product)}> <span><FaShoppingCart /></span> ADD TO CART</button>
+            <p className="product-price">Price: {product.price}</p>
+            <button onClick={() => AddToCart(product)}>
+              {" "}
+              <span>
+                <FaShoppingCart />
+              </span>{" "}
+              ADD TO CART
+            </button>
           </div>
         ))}
       </div>
 
       {/* Pagination */}
       <div className="pagination">
-        {Array.from({ length: Math.ceil(products.length / productsPerPage) }, (_, i) => (
-          <button key={i} onClick={() => paginate(i + 1)}>{i + 1}</button>
-        ))}
+        {Array.from(
+          { length: Math.ceil(products.length / productsPerPage) },
+          (_, i) => (
+            <button key={i} onClick={() => paginate(i + 1)}>
+              {i + 1}
+            </button>
+          )
+        )}
       </div>
     </>
   );
